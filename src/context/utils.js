@@ -5,35 +5,26 @@ import {
   CHANGE_INPUT,
 } from './expense-tracker/Constants.js';
 
+const request = (type, payload = {}) => ({
+  type,
+  payload,
+});
+
 const inputValidation = (name = '', value = '') => {
   let isInvalid = '';
   switch (name) {
     case TEXT:
       if (!value.match(/^[a-zA-Z]*$/)) isInvalid = TEXT;
       break;
-    case AMOUNT:
-      if (!value.match(/^(?:([-+]))?([0-9]+$)/)) isInvalid = AMOUNT;
-      break;
   }
+  if (isInvalid) alert(`Invalid ${isInvalid}!`);
   return isInvalid;
 };
-
-const request = (type, payload = {}) => ({
-  type,
-  payload,
-});
 
 export const inputHandler = (e, dispatch) => {
   const { name = '', value = '' } = e.target;
   const trimmedValue = value.trimStart();
-  if (!trimmedValue) {
-    dispatch(request(CHANGE_INPUT, { [name]: '' }));
-    return;
-  }
-  const isValid = inputValidation(name, trimmedValue);
-  if (isValid) {
-    alert(`Invalid ${isValid}!`);
-    dispatch(request(CHANGE_INPUT, { [name]: '' }));
+  if (!trimmedValue || inputValidation(name, trimmedValue)) {
     return;
   }
   dispatch(request(CHANGE_INPUT, { [name]: trimmedValue }));

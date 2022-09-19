@@ -8,3 +8,6 @@ export const TRANSACTION_REMOVAL_CONFIRMATION =
   'Are you sure you want to remove the transaction ?';
 export const TEXT = 'text';
 export const AMOUNT = 'amount';
+export const DEFAULT_BUTTON_TEXT = 'Button';
+export const REMOVE_BUTTON_TEXT = 'X';
+export const YOUR_BALANCE = 'Your Balance';

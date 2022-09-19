@@ -1,25 +1,26 @@
 import React, { useContext } from 'react';
 import Button from './Button';
-import { getClassString } from '../utils.js';
+import { getClassString, displayAmount } from '../utils.js';
 import { ExpenseTrackerContext } from '../context';
+import { REMOVE_BUTTON_TEXT } from '../strings';
 import '../style.css';
 
 const HistoryCard = ({ text = '', amount = '', showDeleteIcon = false }) => {
   const { handleRemoveTransaction = () => {} } = useContext(
     ExpenseTrackerContext
   );
+  const className = getClassString(amount, showDeleteIcon);
+  const displayAmountValue = displayAmount(amount);
 
   return (
-    <div className={getClassString(amount, showDeleteIcon)}>
+    <div className={className}>
       {showDeleteIcon && (
-        <Button
-          buttonText={'X'}
-          className="deleteIcon"
-          onClick={handleRemoveTransaction}
-        />
+        <Button onClick={handleRemoveTransaction} className="deleteIcon">
+          {REMOVE_BUTTON_TEXT}
+        </Button>
       )}
       <div className="historyText">{text}</div>
-      <div className="historyValue">{amount}</div>
+      <div className="historyValue">{displayAmountValue}</div>
     </div>
   );
 };

@@ -1,20 +1,16 @@
 import React, { useContext } from 'react';
-import { getIncomeExpense } from '../utils.js';
+import {
+  getIncomeExpense,
+  calculateIncome,
+  calculateExpense,
+} from '../utils.js';
 import { ExpenseTrackerContext } from '../context';
 import '../style.css';
 
 const IncomeExpenseContainer = () => {
   const { transactions = [] } = useContext(ExpenseTrackerContext);
-  const income = transactions.reduce(
-    (accumulator, { amount = '' }) =>
-      (accumulator += (+amount || 0) >= 0 ? +amount : 0),
-    0
-  );
-  const expense = transactions.reduce(
-    (accumulator, { amount = '' }) =>
-      (accumulator += (+amount || 0) <= 0 ? +amount : 0),
-    0
-  );
+  const income = calculateIncome(transactions);
+  const expense = calculateExpense(transactions);
 
   return (
     <div className="incomeExpenseContainer">

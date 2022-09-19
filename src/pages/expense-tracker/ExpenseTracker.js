@@ -11,15 +11,15 @@ import '../../style.css';
 
 const ExpenseTracker = () => {
   return (
-    <ExpenseTrackerProvider>
-      <div className="expenseTrackerContainer">
-        <div className="expenseTrackerHeader">{EXPENSE_TRACKER}</div>
-        <BalanceContainer />
-        <IncomeExpenseContainer />
-        <HistoryList />
-        <AddTransaction />
-      </div>
-    </ExpenseTrackerProvider>
+    // <ExpenseTrackerProvider>
+    <div className="expenseTrackerContainer">
+      <div className="expenseTrackerHeader">{EXPENSE_TRACKER}</div>
+      <BalanceContainer />
+      <IncomeExpenseContainer />
+      <HistoryList />
+      <AddTransaction />
+    </div>
+    // </ExpenseTrackerProvider>
   );
 };
 

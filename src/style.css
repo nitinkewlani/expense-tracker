@@ -85,7 +85,8 @@
 }
 
 .historyCardContainerIncome,
-.historyCardContainerExpense {
+.historyCardContainerExpense,
+.historyCardContainerNull {
   display: flex;
   justify-content: space-between;
   background: white;
@@ -102,6 +103,11 @@
 
 .historyCardContainerExpense {
   border-right: 6px solid #cd594f;
+  margin-bottom: 0.65rem;
+}
+
+.historyCardContainerNull {
+  border-right: 6px solid grey;
   margin-bottom: 0.65rem;
 }
 

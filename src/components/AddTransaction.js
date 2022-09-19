@@ -18,8 +18,10 @@ const AddTransaction = () => {
     amount,
   };
 
+  const isButtonDisabled = isAddTransactionDisabled(text, amount);
+
   return (
-    <div className="addTransactionContainer">
+    <form className="addTransactionContainer">
       <div className="addTransactionHeader">{ADD_NEW_TRANSACTION}</div>
       <div className="textAmountContainer">
         {AddTransactionFields.map(
@@ -48,12 +50,10 @@ const AddTransaction = () => {
           )
         )}
       </div>
-      <Button
-        disabled={isAddTransactionDisabled(text, amount)}
-        isAddTransactionDisabledbuttonText={ADD_TRANSACTION}
-        onClick={handleAddTransaction}
-      />
-    </div>
+      <Button disabled={isButtonDisabled} onClick={handleAddTransaction}>
+        {ADD_TRANSACTION}
+      </Button>
+    </form>
   );
 };
 export default AddTransaction;
