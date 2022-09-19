@@ -1,3 +1,3 @@
-# react-qazpa5
+# expense-tracker
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-qazpa5)
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-lsfbyh)
