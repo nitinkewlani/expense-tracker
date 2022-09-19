@@ -7,7 +7,14 @@
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .expenseTrackerContainer {
+  width: 60%;
   background-color: #f7f7f7;
   margin: 2rem;
   padding: 1rem 3rem;
@@ -33,6 +40,11 @@
   font-weight: 600;
   font-size: 1.5rem;
   margin-top: 0.25rem;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 .incomeExpenseContainer {
@@ -60,6 +72,11 @@
   letter-spacing: 0.1rem;
   margin-top: 0.5rem;
   color: #46d07d;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 .expenseContainer > div:nth-child(2) {
@@ -67,10 +84,17 @@
   letter-spacing: 0.1rem;
   margin-top: 0.5rem;
   color: #cd594f;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 .historyList {
-  scroll-behavior: smooth;
+  overflow-y: scroll;
+  min-height: 4vh;
+  max-height: 25vh;
   margin-left: -1.5rem;
 }
 
@@ -96,6 +120,15 @@
   margin-left: 25px;
 }
 
+.historyText,
+.historyValue {
+  max-width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
 .historyCardContainerIncome {
   border-right: 6px solid #46d07d;
   margin-bottom: 0.65rem;
@@ -115,7 +148,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 30vh;
+  min-height: 15vh;
+  max-height: 20vh;
   background-color: white;
   box-shadow: 0px 1px 1px 2px #e0e0e0;
 }

@@ -10,4 +10,3 @@ export const TEXT = 'text';
 export const AMOUNT = 'amount';
 export const DEFAULT_BUTTON_TEXT = 'Button';
 export const REMOVE_BUTTON_TEXT = 'X';
-export const YOUR_BALANCE = 'Your Balance';

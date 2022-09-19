@@ -10,7 +10,9 @@ const BalanceContainer = () => {
   return (
     <div className="myBalanceContainer">
       <div className="myBalanceText">{YOUR_BALANCE}</div>
-      <div className="myBalance">{balance}</div>
+      <div className="myBalance" title={`${YOUR_BALANCE}: ${balance}`}>
+        {balance}
+      </div>
     </div>
   );
 };

@@ -15,10 +15,10 @@ const IncomeExpenseContainer = () => {
   return (
     <div className="incomeExpenseContainer">
       {getIncomeExpense(income, expense).map(
-        ({ className = '', title = '', value = 0 }) => (
-          <div className={className}>
+        ({ className = '', title = '', value = 0 }, index) => (
+          <div key={`${title}_${index}`} className={className}>
             <div>{title}</div>
-            <div>{value}</div>
+            <div title={`${title}: ${value}`}>{value}</div>
           </div>
         )
       )}

@@ -28,8 +28,8 @@ const AddTransaction = () => {
           ({
             name = '',
             value = '',
-            placeholder = `Enter ${name} here`,
-            type = 'text',
+            placeholder = '',
+            type = '',
             displayText = '',
             displaySubText = '',
           }) => (

@@ -19,8 +19,12 @@ const HistoryCard = ({ text = '', amount = '', showDeleteIcon = false }) => {
           {REMOVE_BUTTON_TEXT}
         </Button>
       )}
-      <div className="historyText">{text}</div>
-      <div className="historyValue">{displayAmountValue}</div>
+      <div className="historyText" title={text}>
+        {text}
+      </div>
+      <div className="historyValue" title={displayAmountValue}>
+        {displayAmountValue}
+      </div>
     </div>
   );
 };

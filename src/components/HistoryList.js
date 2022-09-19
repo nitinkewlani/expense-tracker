@@ -13,9 +13,11 @@ const HistoryList = () => {
       <div className="historyListHeader">{HISTORY_TEXT}</div>
       {transactions.length > 0 ? (
         <div className="historyList">
-          {transactions.map((historyObject = {}, index) => (
+          {transactions.map(({ amount = '', text = '' }, index) => (
             <HistoryCard
-              {...historyObject}
+              key={`${text}_${amount}_${index}`}
+              text={text}
+              amount={amount}
               showDeleteIcon={index === transactions.length - 1}
             />
           ))}

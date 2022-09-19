@@ -14,7 +14,7 @@ const inputValidation = (name = '', value = '') => {
   let isInvalid = '';
   switch (name) {
     case TEXT:
-      if (!value.match(/^[a-zA-Z]*$/)) isInvalid = TEXT;
+      if (!value.match(/^[a-zA-Z ]*$/)) isInvalid = TEXT;
       break;
   }
   if (isInvalid) alert(`Invalid ${isInvalid}!`);
@@ -25,6 +25,8 @@ export const inputHandler = (e, dispatch) => {
   const { name = '', value = '' } = e.target;
   const trimmedValue = value.trimStart();
   if (!trimmedValue || inputValidation(name, trimmedValue)) {
+    const prevValue = trimmedValue.substring(0, trimmedValue.length - 1) || '';
+    dispatch(request(CHANGE_INPUT, { [name]: prevValue }));
     return;
   }
   dispatch(request(CHANGE_INPUT, { [name]: trimmedValue }));
