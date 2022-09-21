@@ -237,4 +237,13 @@
     border-right: none;
     margin-bottom: 1rem;
   }
+  .expenseTrackerContainer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .expenseTrackerContainer {
+    width: 100%;
+  }
 }
