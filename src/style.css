@@ -14,7 +14,7 @@
 }
 
 .expenseTrackerContainer {
-  width: 60%;
+  width: 50%;
   background-color: #f7f7f7;
   margin: 2rem;
   padding: 1rem 3rem;
@@ -238,12 +238,12 @@
     margin-bottom: 1rem;
   }
   .expenseTrackerContainer {
-    width: 100%;
+    width: 90%;
   }
 }
 
 @media screen and (max-width: 600px) {
   .expenseTrackerContainer {
-    width: 100%;
+    width: 90%;
   }
 }
