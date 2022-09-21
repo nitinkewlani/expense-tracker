@@ -221,6 +221,12 @@
   cursor: not-allowed;
 }
 
+@media screen and (max-width: 600px) {
+  .expenseTrackerContainer {
+    width: 90%;
+  }
+}
+
 @media screen and (max-width: 430px) {
   .incomeExpenseContainer {
     display: flex;
@@ -236,14 +242,5 @@
     padding-bottom: 1rem;
     border-right: none;
     margin-bottom: 1rem;
-  }
-  .expenseTrackerContainer {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .expenseTrackerContainer {
-    width: 90%;
   }
 }
