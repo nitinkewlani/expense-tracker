@@ -1,13 +1,13 @@
-import React from 'react';
-import ExpenseTrackerComponent from './ExpenseTracker';
-import { ExpenseTrackerProvider } from '../../context';
+import React from "react";
+import ExpenseTrackerComponent from "./ExpenseTracker";
+import { ExpenseTrackerProvider } from "../../context";
 
-const ExpenseTracker = () => {
+function ExpenseTracker() {
   return (
     <ExpenseTrackerProvider>
       <ExpenseTrackerComponent />
     </ExpenseTrackerProvider>
   );
-};
+}
 
 export default ExpenseTracker;

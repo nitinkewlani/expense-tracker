@@ -1,15 +1,11 @@
-import React, { createContext, useMemo, useReducer, useCallback } from 'react';
-import {
-  inputHandler,
-  addTransactionHandler,
-  removeTransactionHandler,
-} from '../utils';
-import { INITIAL_STATE, ExpenseTrackerReducer } from './Reducer.js';
+import React, { createContext, useMemo, useReducer, useCallback } from "react";
+import { inputHandler, addTransactionHandler, removeTransactionHandler } from "../utils";
+import { INITIAL_STATE, ExpenseTrackerReducer } from "./Reducer";
 
 export const ExpenseTrackerContext = createContext(INITIAL_STATE);
 
-const ExpenseTrackerProvider = (props) => {
-  const { children = <></> } = props;
+function ExpenseTrackerProvider(props) {
+  const { children = "" } = { ...props };
   const [state, dispatch] = useReducer(ExpenseTrackerReducer, INITIAL_STATE);
   const handleInput = useCallback((e) => inputHandler(e, dispatch), []);
   const handleAddTransaction = () => addTransactionHandler(state, dispatch);
@@ -21,14 +17,12 @@ const ExpenseTrackerProvider = (props) => {
       handleAddTransaction,
       handleRemoveTransaction,
     }),
-    [state]
+    [state],
   );
 
   return (
-    <ExpenseTrackerContext.Provider value={{ ...contextValue }}>
-      {children}
-    </ExpenseTrackerContext.Provider>
+    <ExpenseTrackerContext.Provider value={contextValue}>{children}</ExpenseTrackerContext.Provider>
   );
-};
+}
 
 export default ExpenseTrackerProvider;

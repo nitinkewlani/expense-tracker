@@ -1,8 +1,8 @@
-import React from 'react';
-import { ExpenseTracker } from './pages';
+import React from "react";
+import ExpenseTracker from "./pages";
 
-const App = () => {
+function App() {
   return <ExpenseTracker />;
-};
+}
 
 export default App;

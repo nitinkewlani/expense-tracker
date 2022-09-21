@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
-import Input from './Input';
-import Button from './Button';
-import { AddTransactionFields, isAddTransactionDisabled } from '../utils.js';
-import { ADD_NEW_TRANSACTION, ADD_TRANSACTION } from '../strings.js';
-import { ExpenseTrackerContext } from '../context';
+import React, { useContext } from "react";
+import Input from "./Input";
+import Button from "./Button";
+import { AddTransactionFields, isAddTransactionDisabled } from "../utils";
+import { ADD_NEW_TRANSACTION, ADD_TRANSACTION } from "../strings";
+import { ExpenseTrackerContext } from "../context";
 
-const AddTransaction = () => {
+function AddTransaction() {
   const {
-    text = '',
-    amount = '',
+    text = "",
+    amount = "",
     handleInput = () => {},
     handleAddTransaction = () => {},
   } = useContext(ExpenseTrackerContext);
@@ -25,15 +25,18 @@ const AddTransaction = () => {
       <div className="addTransactionHeader">{ADD_NEW_TRANSACTION}</div>
       <div className="textAmountContainer">
         {AddTransactionFields.map(
-          ({
-            name = '',
-            value = '',
-            placeholder = '',
-            type = '',
-            displayText = '',
-            displaySubText = '',
-          }) => (
-            <div className="inputContainer">
+          (
+            {
+              name = "",
+              value = "",
+              placeholder = "",
+              type = "",
+              displayText = "",
+              displaySubText = "",
+            },
+            index,
+          ) => (
+            <div className="inputContainer" key={`${name}_${value}_${index + 1}`}>
               <div className="displayTextContainer">
                 <div>{displayText}</div>
                 <div>{displaySubText}</div>
@@ -44,16 +47,15 @@ const AddTransaction = () => {
                 value={inputState[name] || value}
                 type={type}
                 onChange={handleInput}
-                autoComplete="off"
               />
             </div>
-          )
+          ),
         )}
       </div>
-      <Button disabled={isButtonDisabled} onClick={handleAddTransaction}>
+      <Button disabled={isButtonDisabled} onClick={handleAddTransaction} type="submit">
         {ADD_TRANSACTION}
       </Button>
     </form>
   );
-};
+}
 export default AddTransaction;

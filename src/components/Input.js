@@ -1,7 +1,24 @@
-import React from 'react';
+import React from "react";
 
-const Input = (props) => {
-  return <input {...props} />;
-};
+function Input(props) {
+  const {
+    name = "",
+    placeholder = "",
+    value = "",
+    type = "text",
+    onChange = () => {},
+  } = { ...props };
+
+  return (
+    <input
+      name={name}
+      placeholder={placeholder}
+      value={value}
+      type={type}
+      onChange={onChange}
+      autoComplete="off"
+    />
+  );
+}
 
 export default Input;

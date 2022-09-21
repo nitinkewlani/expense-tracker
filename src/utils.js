@@ -1,68 +1,64 @@
 export const getIncomeExpense = (income = 0, expense = 0) => [
   {
-    className: 'incomeContainer',
-    title: 'INCOME',
+    className: "incomeContainer",
+    title: "INCOME",
     value: `+$${income?.toFixed(2) || 0}`,
   },
   {
-    className: 'expenseContainer',
-    title: 'EXPENSE',
+    className: "expenseContainer",
+    title: "EXPENSE",
     value: `-$${Math.abs(expense)?.toFixed(2) || 0}`,
   },
 ];
 
 export const AddTransactionFields = [
   {
-    name: 'text',
-    placeholder: 'Enter text...',
-    value: '',
-    type: 'text',
-    displayText: 'Text',
+    name: "text",
+    placeholder: "Enter text...",
+    value: "",
+    type: "text",
+    displayText: "Text",
   },
   {
-    name: 'amount',
-    placeholder: '0',
-    type: 'number',
-    displayText: 'Amount',
-    displaySubText: '(negative - expense, positive - income)',
+    name: "amount",
+    placeholder: "0",
+    type: "number",
+    displayText: "Amount",
+    displaySubText: "(negative - expense, positive - income)",
   },
 ];
 
-export const isAddTransactionDisabled = (text = '', amount = '') => {
-  return !(text && amount);
+export const isAddTransactionDisabled = (text = "", amount = "") => !(text && amount);
+
+export const displayAmount = (amount = "") => {
+  if (+amount === 0) {
+    return `${(+amount).toFixed(2)}`;
+  }
+  if (amount.startsWith("+") || amount.startsWith("-")) {
+    return `${amount[0]}${(+amount.substring(1)).toFixed(2)}`;
+  }
+  if (+amount % 1 === 0) return `+${(+amount).toFixed(2)}`;
+  return `+${(+amount).toFixed(2)}`;
 };
 
-export const getClassString = (amount = '', showDeleteIcon = false) => {
+export const getClassString = (amount = "", showDeleteIcon = false) => {
   const modifiedAmount = displayAmount(amount);
-  let className = '';
-  if (+modifiedAmount === 0) className = 'historyCardContainerNull';
-  else if (modifiedAmount.startsWith('-'))
-    className = 'historyCardContainerExpense';
-  else if (modifiedAmount.startsWith('+'))
-    className = 'historyCardContainerIncome';
+  let className = "";
+  if (+modifiedAmount === 0) className = "historyCardContainerNull";
+  else if (modifiedAmount.startsWith("-")) className = "historyCardContainerExpense";
+  else if (modifiedAmount.startsWith("+")) className = "historyCardContainerIncome";
   if (showDeleteIcon) {
-    className += ` deleteIconPresent`;
+    className += " deleteIconPresent";
   }
   return className;
 };
 
-export const displayAmount = (amount = '') => {
-  if (+amount === 0) {
-    return `${(+amount).toFixed(2)}`;
-  } else if (amount.startsWith('+') || amount.startsWith('-')) {
-    return `${amount[0]}${(+amount.substring(1)).toFixed(2)}`;
-  } else {
-    if (+amount % 1 === 0) return `+${(+amount).toFixed(2)}`;
-    return `+${(+amount).toFixed(2)}`;
-  }
-};
-
 export const calculateBalance = (transactions = []) => {
-  const resultBalance = transactions.reduce(
-    (accumulator, { amount: balance = '' }) =>
-      (accumulator += +balance || 0 ? +balance : 0),
-    0
-  );
+  const resultBalance = transactions.reduce((accumulator, { amount = "" }) => {
+    let result = accumulator;
+    result += +amount || 0 ? +amount : 0;
+    return result;
+  }, 0);
 
   return resultBalance >= 0
     ? `$${resultBalance.toFixed(2)}`
@@ -70,15 +66,15 @@ export const calculateBalance = (transactions = []) => {
 };
 
 export const calculateIncome = (transactions = []) =>
-  transactions.reduce(
-    (accumulator, { amount = '' }) =>
-      (accumulator += (+amount || 0) >= 0 ? +amount : 0),
-    0
-  );
+  transactions.reduce((accumulator, { amount = "" }) => {
+    let result = accumulator;
+    result += (+amount || 0) > 0 ? +amount : 0;
+    return result;
+  }, 0);
 
 export const calculateExpense = (transactions = []) =>
-  transactions.reduce(
-    (accumulator, { amount = '' }) =>
-      (accumulator += (+amount || 0) <= 0 ? +amount : 0),
-    0
-  );
+  transactions.reduce((accumulator, { amount = "" }) => {
+    let result = accumulator;
+    result += (+amount || 0) < 0 ? +amount : 0;
+    return result;
+  }, 0);

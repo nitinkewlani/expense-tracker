@@ -1,16 +1,12 @@
-import {
-  CHANGE_INPUT,
-  ADD_TRANSACTION,
-  REMOVE_TRANSACTION,
-} from './Constants.js';
+import { CHANGE_INPUT, ADD_TRANSACTION, REMOVE_TRANSACTION } from "./Constants";
 
 export const INITIAL_STATE = {
-  text: '',
-  amount: '',
+  text: "",
+  amount: "",
   transactions: [],
 };
 
-export const ExpenseTrackerReducer = (state = INITIAL_STATE, action) => {
+export const ExpenseTrackerReducer = (state = INITIAL_STATE, action = {}) => {
   const { transactions = [] } = { ...state };
   switch (action.type) {
     case CHANGE_INPUT:

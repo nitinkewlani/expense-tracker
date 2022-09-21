@@ -1,1 +1,3 @@
-export { default as ExpenseTracker } from './expense-tracker';
+import ExpenseTracker from "./expense-tracker";
+
+export default ExpenseTracker;

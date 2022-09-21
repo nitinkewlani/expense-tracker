@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { ExpenseTrackerContext } from '../context';
-import { calculateBalance } from '../utils';
-import { YOUR_BALANCE } from '../strings';
+import React, { useContext } from "react";
+import { ExpenseTrackerContext } from "../context";
+import { calculateBalance } from "../utils";
+import { YOUR_BALANCE } from "../strings";
 
-const BalanceContainer = () => {
+function BalanceContainer() {
   const { transactions = [] } = useContext(ExpenseTrackerContext);
   const balance = calculateBalance(transactions);
 
@@ -15,6 +15,6 @@ const BalanceContainer = () => {
       </div>
     </div>
   );
-};
+}
 
 export default BalanceContainer;

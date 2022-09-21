@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 import {
   BalanceContainer,
   IncomeExpenseContainer,
   HistoryList,
   AddTransaction,
-} from '../../components';
-import { EXPENSE_TRACKER } from '../../strings.js';
-import '../../style.css';
+} from "../../components";
+import { EXPENSE_TRACKER } from "../../strings";
+import "../../style.css";
 
-const ExpenseTracker = () => {
+function ExpenseTracker() {
   return (
     <div className="expenseTrackerContainer">
       <div className="expenseTrackerHeader">{EXPENSE_TRACKER}</div>
@@ -18,6 +18,6 @@ const ExpenseTracker = () => {
       <AddTransaction />
     </div>
   );
-};
+}
 
 export default ExpenseTracker;
