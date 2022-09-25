@@ -2,12 +2,12 @@ export const getIncomeExpense = (income = 0, expense = 0) => [
   {
     className: "incomeContainer",
     title: "INCOME",
-    value: `+$${income?.toFixed(2) || 0}`,
+    value: income ? `+$${income?.toFixed(2)}` : "$0.00",
   },
   {
     className: "expenseContainer",
     title: "EXPENSE",
-    value: `-$${Math.abs(expense)?.toFixed(2) || 0}`,
+    value: expense ? `-$${Math.abs(expense)?.toFixed(2)}` : "$0.00",
   },
 ];
 
