@@ -11,7 +11,6 @@ function HistoryList() {
 
   useEffect(() => {
     if (transactions.length > 4) {
-      console.log(transactions.length);
       if (lastElementRef)
         lastElementRef?.current?.scrollIntoView({
           behavior: "smooth",
